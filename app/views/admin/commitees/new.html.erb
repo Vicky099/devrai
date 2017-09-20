@@ -1,0 +1,15 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Devarai Commitee members</h3>
+        <%= form_for @commitee, :url => admin_commitees_path, :method => :post do |f| %>
+          <%= f.text_field :name, placeholder: 'Name', required: true %>
+          <%= f.text_field :designation, placeholder: 'Designation', required: true %>
+          <%= f.text_field :status, placeholder: 'Role', required: true %>
+          <%= f.file_field :photo, required: true %></br>
+          <%= f.submit "Share Now"%>
+        <% end %>
+    </div>
+  </div>
+</div>
+<!-- newsletter -->

@@ -1,0 +1,24 @@
+---
+en:
+  breadcrumbs:
+    application:
+      root: Devrai (Marathi) for us is a dense but well managed plantation generally
+        on the outskirts of villages. Devrai is a pretty old concept and references
+        can be found in old literatures. There are many popular and old devrais in
+        India which are maintained by locals of those regions.
+    pages:
+      pages: Pages
+  helpers:
+    actions: Actions
+    links:
+      back: Back
+      cancel: Cancel
+      confirm: Are you sure?
+      destroy: Delete
+      new: New
+      edit: Edit
+    titles:
+      edit: Edit %{model}
+      save: Save %{model}
+      new: New %{model}
+      delete: Delete %{model}

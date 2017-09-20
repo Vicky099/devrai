@@ -1,0 +1,13 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Share Devarai's sweet memories</h3>
+        <%= form_for @gallary, :url => admin_gallarys_path, :method => :post do |f| %>
+          <%= f.text_field :name, placeholder: 'Name', required: true %>
+          <%= f.file_field :photo, required: true %></br>
+          <%= f.submit "Share Now"%>
+        <% end %>
+    </div>
+  </div>
+</div>
+<!-- newsletter -->
