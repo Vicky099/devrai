@@ -26,6 +26,10 @@ class Admin::GallarysController < ApplicationController
   end
 
   def destroy
+    image = Gallary.find(params[:id])
+    image.destroy
+    flash[:success] = "Image deleted succssfully"
+    redirect_to delete_data_admin_dashboards_path
   end
 
   private

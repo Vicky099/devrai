@@ -12,6 +12,7 @@ class Admin::NewsController < ApplicationController
 
   def create
     news = News.new(news_params)
+    news.build_picture(photo: params['news']['photo'])
     if news.save
       flash[:success] = "News created successfully."
       redirect_to admin_path
@@ -23,6 +24,13 @@ class Admin::NewsController < ApplicationController
 
   def show
     @news = News.find(params[:id])
+  end
+
+  def destroy
+    news = News.find(params[:id])
+    news.destroy
+    flash[:success] = "News deleted succssfully"
+    redirect_to delete_data_admin_dashboards_path
   end
 
   private

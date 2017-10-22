@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :homes
   namespace :admin do
     resources :gallarys
-    resources :dashboards, only: [:index]
+    resources :dashboards, only: [:index] do
+      collection do
+        get :delete_data
+      end
+    end
     resources :commitees
     resources :news
   end

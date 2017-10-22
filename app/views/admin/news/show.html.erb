@@ -1,0 +1,19 @@
+<div class="news">
+  <div class="container">
+    <h3>News</h3>
+    <div class="col-md-6">
+      <div class="agileits_news_grid_left_gridl">
+        <p class="para1"><%= @news.event_date.day %><span><%= @news.event_date.strftime("%b-%Y")%></span></p>
+      </div>
+      <div class="agileits_news_grid_left_gridr">
+         <% if @news.picture.present? %>
+            <%= image_tag @news.photo_url, class: "img-responsive"%>
+          <% else %>
+            <%= image_tag 'default.png', class: 'img-responsive' %>
+          <% end %>
+        <h4><%= @news.title %></h4>
+        <p><%= @news.description %></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@
         <%= form_for @commitee, :url => admin_commitees_path, :method => :post do |f| %>
           <%= f.text_field :name, placeholder: 'Name', required: true %>
           <%= f.text_field :designation, placeholder: 'Designation', required: true %>
+          <%= f.text_field :bio, placeholder: 'Working Biodata', required: true %>
           <%= f.text_field :status, placeholder: 'Role', required: true %>
           <%= f.file_field :photo, required: true %></br>
           <%= f.submit "Share Now"%>

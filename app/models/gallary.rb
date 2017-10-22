@@ -9,4 +9,8 @@ class Gallary < ApplicationRecord
   def self.save_picture(gallary, photo)
     gallary.pictures.build(photo: photo).save!
   end
+
+  def photo_url
+    self.pictures.first.photo_url
+  end
 end

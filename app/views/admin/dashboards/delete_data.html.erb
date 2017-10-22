@@ -1,0 +1,64 @@
+<% if @news.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>News</h3>
+        <table>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+          <% @news.each do |news| %>
+            <tr>
+              <td><%= news.title %></td>
+              <td><%= news.description %></td>
+              <td><%= link_to "delete", admin_news_path(news.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-link' %></td>
+            </tr>
+            <div class="clearfix"></div>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if @gallarys.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>Photos</h3>
+        <table>
+          <th>Name</th>
+          <th>Action</th>
+          <% @gallarys.each do |image| %>
+            <tr>
+              <td><%= image.name %></td>
+              <td><%= link_to "delete", admin_gallary_path(image.id), method: :delete , data: {confirm: "Are you sure?"}, class: 'btn btn-link' %></td>
+            </tr>
+            <div class="clearfix"></div>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if @commitees.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>Members</h3>
+        <table>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Action</th>
+          <% @commitees.each do |member| %>
+            <tr>
+              <td><%= member.name %></td>
+              <td><%= member.designation %></td>
+              <td><%= link_to "delete", admin_commitees_path(member.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-link' %></td>
+            </tr>
+            <div class="clearfix"></div>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -5,8 +5,90 @@
       <%= link_to "Add Photos", new_admin_gallary_path, class: "btn btn-default" %>
       <%= link_to "Add Commitee Members", new_admin_commitee_path, class: "btn btn-default" %>
       <%= link_to "Add Devrai New's", new_admin_news_path, class: "btn btn-default" %>
+      <%= link_to "Delete Unwanted Data", delete_data_admin_dashboards_path, class: "btn btn-default" %>
     </div>
     <h3>Recent activity in admin panel</h3>
   </div>
 </div>
-<!-- newsletter -->
+<% if @news.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>News</h3>
+        <% @news.each do |news| %>
+          <div class="cmnt-set1">
+            <div class="col-md-2 cus-img">
+              <% if news.picture.present? %>
+                <%= image_tag news.photo_url, class: "img-responsive"%>
+              <% else %>
+                <%= image_tag 'default.png', class: 'img-responsive' %>
+              <% end %>
+            </div>
+            <div class="col-md-10 cus-text">
+              <a href="#"><h4><%= news.title %></h4></a>
+              <h5><%= news.event_date.strftime("%Y-%m-%d")%></h5>
+              <p><%= news.description %></p>
+            </div>
+            <div class="clearfix"></div>
+          </div></br>
+        <% end %>
+      </div>
+      <%= link_to "View More", admin_news_index_path, class: 'btn btn-link' %>
+    </div>
+  </div>
+<% end %>
+<% if @gallarys.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>Photos</h3>
+        <% @gallarys.each do |image| %>
+          <div class="cmnt-set1">
+            <div class="col-md-2 cus-img">
+              <% if image.pictures.present? %>
+                <%= image_tag image.photo_url, class: "img-responsive"%>
+              <% else %>
+                <%= image_tag 'default.png', class: 'img-responsive' %>
+              <% end %>
+            </div>
+            <div class="col-md-10 cus-text">
+              <a href="#"><h4><%= image.name %></h4></a>
+              <h5><%= image.created_at.strftime("%Y-%m-%d") %></h5>
+              <p><%= "Devrai's best images." %></p>
+            </div>
+            <div class="clearfix"></div>
+          </div><br/>
+        <% end %>
+      </div>
+      <%= link_to "View More", "#", class: 'btn btn-link' %>
+    </div>
+  </div>
+<% end %>
+<% if @commitees.present? %>
+  <div class="blog">
+    <div class="container">
+      <div class="comments">
+        <h3>Members</h3>
+        <% @commitees.each do |member| %>
+          <div class="cmnt-set1">
+            <div class="col-md-2 cus-img">
+              <% if member.picture.present? %>
+                <%= image_tag member.photo_url, class: "img-responsive"%>
+              <% else %>
+                <%= image_tag 'default.png', class: 'img-responsive' %>
+              <% end %>
+            </div>
+            <div class="col-md-10 cus-text">
+              <a href="#"><h4><%= member.name %></h4></a>
+              <h5><%= member.created_at.strftime("%Y-%m-%d")%></h5>
+              <% biodata = " - Biodata: #{member.bio}" if member.bio.present? %>
+              <p><%= " Designation: #{member.designation} #{biodata}" %></p>
+            </div>
+            <div class="clearfix"></div>
+          </div></br>
+        <% end %>
+      </div>
+      <%= link_to "View More", "#", class: 'btn btn-link' %>
+    </div>
+  </div>
+<% end %>

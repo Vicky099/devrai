@@ -24,9 +24,16 @@ class Admin::CommiteesController < ApplicationController
     @commitee = Commitee.find(params[:id])
   end
 
+  def destroy
+    member = Commitee.find(params[:id])
+    member.destroy
+    flash[:success] = "Member deleted succssfully"
+    redirect_to delete_data_admin_dashboards_path
+  end
+
   private
   def commitee_params
-    params.require(:commitee).permit(:name, :designation, :status)
+    params.require(:commitee).permit(:name, :designation, :status, :bio)
   end
 
 end
