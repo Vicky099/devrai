@@ -1,5 +1,6 @@
 class Admin::NewsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_admin_user
   layout "admin"
 
   def index
@@ -29,7 +30,7 @@ class Admin::NewsController < ApplicationController
   def destroy
     news = News.find(params[:id])
     news.destroy
-    flash[:success] = "News deleted succssfully"
+    flash[:success] = "News deleted successfully"
     redirect_to delete_data_admin_dashboards_path
   end
 

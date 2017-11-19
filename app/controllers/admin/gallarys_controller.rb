@@ -1,5 +1,7 @@
 class Admin::GallarysController < ApplicationController
   include Sidekiq::Worker
+  before_action :authenticate_user!
+  before_action :verify_admin_user
 
   layout "admin"
 
@@ -13,7 +15,6 @@ class Admin::GallarysController < ApplicationController
 
   def create
     gallary = Gallary.new(gallary_params)
-    binding.pry
     if gallary.save
       #gallary.pictures.build(photo: photo).save!
       Gallary.save_picture(gallary, params[:gallary][:photo])
@@ -28,7 +29,7 @@ class Admin::GallarysController < ApplicationController
   def destroy
     image = Gallary.find(params[:id])
     image.destroy
-    flash[:success] = "Image deleted succssfully"
+    flash[:success] = "Image deleted successfully"
     redirect_to delete_data_admin_dashboards_path
   end
 

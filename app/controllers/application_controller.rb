@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
    before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resources)
-    admin_dashboards_path
+    if current_user.admin?
+      admin_dashboards_path
+    else
+      community_path
+    end
   end
 
   def after_sign_out_path_for(resources)
@@ -14,6 +18,13 @@ class ApplicationController < ActionController::Base
     unless user_signed_in?
       flash[:danger] = "You must login first"
       redirect_to new_user_session_path
+    end
+  end
+
+  def verify_admin_user
+    unless current_user.admin?
+      flash[:alert] = "Access Denied"
+      redirect_to homes_url
     end
   end
 

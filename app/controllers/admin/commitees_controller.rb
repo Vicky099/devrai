@@ -1,5 +1,6 @@
 class Admin::CommiteesController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_admin_user
   layout "admin"
 
   def index
@@ -27,7 +28,7 @@ class Admin::CommiteesController < ApplicationController
   def destroy
     member = Commitee.find(params[:id])
     member.destroy
-    flash[:success] = "Member deleted succssfully"
+    flash[:success] = "Member deleted successfully"
     redirect_to delete_data_admin_dashboards_path
   end
 

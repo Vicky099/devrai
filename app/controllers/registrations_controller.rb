@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:success] = 'For accessing your account you must have to confirm your account. Comfirmation link sent to your registered email address.'
       redirect_to new_user_session_path
     else
-      flash[:danger] = 'User not registered successfully.'
+      @errors = @user.errors
       render action: :new
     end
   end
@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
   def user_params
-    params.require(:user).permit(:full_name, :date_of_birth, :address, :date_of_birth, :city, :state, :email, :password, :password_confirmation)
+    params.require(:user).permit(:full_name, :date_of_birth, :address, :date_of_birth, :city, :state, :email, :password, :password_confirmation, :contact_no, :remember_me)
   end
 
 end

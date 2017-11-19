@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "login", to: "devise/sessions#new"
     get "logout", to: "devise/sessions#destroy"
+    match 'users', to: 'devise/sessions#new', via: :get
   end
 
   resources :homes
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   #custom routes
 
   match 'admin', to: 'admin/dashboards#index', via: :get
+  match 'community', to: 'homes#community', via: :get
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -30,13 +30,20 @@
           <%= link_to admin_path, :class=>"btn btn-default" do %>
             <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Admin Panel
           <% end %>
+        <% else %>
+          <%= link_to community_path, :class=>"btn btn-default" do %>
+            <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Devarai Community
+          <% end %>
         <% end %>
         <%= link_to logout_path, :class=>"btn btn-primary" do %>
           <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Logout
         <% end %>
       <% else %>
         <%= link_to admin_dashboards_path, :class=>"btn btn-primary" do %>
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Devrai Community
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login
+        <% end %>
+        <%= link_to new_user_registration_path, :class=>"btn btn-default" do %>
+          <span class="glyphicon glyphicon-user" area-hidden="true"></span> Sign Up
         <% end %>
       <% end %>
     </div>
