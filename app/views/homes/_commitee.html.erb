@@ -1,63 +1,22 @@
 <div class="container">
   <h3>Devrai Commitee</h3>
-  <div class="col-md-3 team-grids">
-    <img src="assets/t1.jpg" alt=" " class="img-responsive">
-    <div class="team-social-icons">
-      <ul class="team-social-icons">
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-    <div class="p-mask">
-      <h4>Guy Ritchie</h4>
-      <h5>Farmer</h5>
-    </div>
-
-  </div>
-
-  <div class="col-md-3 team-grids">
-    <img src="assets/t2.jpg" alt=" " class="img-responsive">
-    <div class="team-social-icons">
-      <ul class="team-social-icons">
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-    <div class="p-mask">
-      <h4>Lisa kristen</h4>
-      <h5>Farmer</h5>
-    </div>
-
-  </div>
-  <div class="col-md-3 team-grids">
-    <img src="assets/t3.jpg" alt=" " class="img-responsive">
-    <div class="team-social-icons">
-      <ul class="team-social-icons">
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-    <div class="p-mask">
-      <h4>Rose Alba</h4>
-      <h5>Agriculture analyst</h5>
-    </div>
-  </div>
-  <div class="col-md-3 team-grids">
-    <img src="assets/t4.jpg" alt=" " class="img-responsive">
-    <div class="team-social-icons">
-      <ul class="team-social-icons">
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-    <div class="p-mask">
-      <h4>John Doe</h4>
-      <h5>Farmer</h5>
-    </div>
-  </div>
+  <% if @members.present? %>
+    <% @members.each do |member| %>
+      <div class="col-md-3 team-grids">
+        <%= image_tag member.photo_url, class: "img-responsive"%>
+        <div class="team-social-icons">
+          <ul class="team-social-icons">
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="p-mask">
+          <h4><%= member.name %></h4>
+          <h5><%= member.designation %></h5>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <div class="clearfix"></div>
 </div>

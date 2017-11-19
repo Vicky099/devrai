@@ -6,65 +6,24 @@
         <ul id="myList">
           <li>
             <div class="l_g">
-              <div class="col-md-6 agileits_news_grid_left">
-                <div class="agileits_news_grid_left_gridl">
-                  <p class="para1">28 <span>June- 2016</span></p>
+              <% @news.each do |news| %>
+                <div class="col-md-6 agileits_news_grid_left">
+                  <div class="agileits_news_grid_left_gridl">
+                    <p class="para1"><%= news.event_date.day %><span><%= news.event_date.strftime("%b-%Y")%></span></p>
+                  </div>
+                  <div class="agileits_news_grid_left_gridr">
+                    <%= image_tag news.photo_url, class: "img-responsive"%>
+                    <h4><%= news.title %></h4>
+                    <p><%= news.description %></p>
+                  </div>
+                  <div class="clearfix"> </div>
                 </div>
-                <div class="agileits_news_grid_left_gridr">
-                  <a href="single.html"><img src="assets/n1.jpg" alt=" " class="img-responsive" /></a>
-                  <h4><a href="single.html">tempora incidunt sit</a></h4>
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                    quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-                </div>
-                <div class="clearfix"> </div>
-              </div>
-              <div class="col-md-6 agileits_news_grid_left">
-                <div class="agileits_news_grid_left_gridl">
-                  <p class="para1">30 <span>June- 2016</span></p>
-                </div>
-                <div class="agileits_news_grid_left_gridr">
-                  <a href="single.html"><img src="assets/n2.jpg" alt=" " class="img-responsive" /></a>
-                  <h4><a href="single.html">illumqui dolorem eum</a></h4>
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                    quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-                </div>
-                <div class="clearfix"> </div>
-              </div>
+              <% end %>
               <div class="clearfix"> </div>
             </div>
           </li>
-          <li>
-            <div class="l_g">
-              <div class="col-md-6 agileits_news_grid_left">
-                <div class="agileits_news_grid_left_gridl">
-                  <p class="para1">28 <span>June- 2016</span></p>
-                </div>
-                <div class="agileits_news_grid_left_gridr">
-                  <a href="single.html"><img src="assets/n3.jpg" alt=" " class="img-responsive" /></a>
-                  <h4><a href="single.html">tempora incidunt eius</a></h4>
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                    quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-                </div>
-                <div class="clearfix"> </div>
-              </div>
-              <div class="col-md-6 agileits_news_grid_left">
-                <div class="agileits_news_grid_left_gridl">
-                  <p class="para1">30 <span>June- 2016</span></p>
-                </div>
-                <div class="agileits_news_grid_left_gridr">
-                  <a href="single.html"><img src="assets/n4.jpg" alt=" " class="img-responsive" /></a>
-                  <h4><a href="single.html">illumqui dolorem eum</a></h4>
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                    quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-                </div>
-                <div class="clearfix"> </div>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </li>
-
         </ul>
-        <div id="loadMore">more news</div>
+        <div><%= link_to "More News", "#", class: 'btn btn-default' %></div>
       </div>
     </div>
   </div>

@@ -1,0 +1,21 @@
+<div class="news">
+  <div class="container">
+    <h3>Commitee Member</h3>
+      <% @commitees.each do |member| %>
+        <div class="col-md-6">
+          <div class="agileits_news_grid_left_gridl">
+            <p class="para1"><%= member.created_at.day %><span><%= member.created_at.strftime("%b-%Y")%></span></p>
+          </div>
+          <div class="agileits_news_grid_left_gridr">
+            <div class="cus-img">
+              <%= image_tag member.photo_url, class: "img-responsive"%>
+            </div>
+            <h4><%= link_to "#{member.name}", admin_news_path(member.id), class: 'btn btn-link' %></h4>
+            <% biodata = " - Biodata: #{member.bio}" if member.bio.present? %>
+            <p><%= " Designation: #{member.designation} #{biodata}" %></p>
+          </div>
+          <div class="clearfix"> </div>
+        </div><br/>
+      <% end %>
+  </div>
+</div>

@@ -26,6 +26,10 @@ class Admin::GallarysController < ApplicationController
     end
   end
 
+  def show
+    @gallary = Gallary.find_by(id: params[:id])
+  end
+
   def destroy
     image = Gallary.find(params[:id])
     image.destroy

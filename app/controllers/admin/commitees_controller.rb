@@ -4,6 +4,7 @@ class Admin::CommiteesController < ApplicationController
   layout "admin"
 
   def index
+    @commitees = Commitee.all
   end
 
   def new
@@ -22,7 +23,7 @@ class Admin::CommiteesController < ApplicationController
   end
 
   def show
-    @commitee = Commitee.find(params[:id])
+    @commitee = Commitee.find_by(id: params[:id])
   end
 
   def destroy

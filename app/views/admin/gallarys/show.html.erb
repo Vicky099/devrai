@@ -1,0 +1,16 @@
+<div class="news">
+  <div class="container">
+    <h3>Gallary</h3>
+    <div class="col-md-6">
+      <div class="agileits_news_grid_left_gridl">
+        <% photo_date = (@gallary.photo_date || @gallary.created_at ) %>
+        <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
+      </div>
+      <div class="agileits_news_grid_left_gridr">
+        <%= image_tag @gallary.photo_url, class: "img-responsive"%>
+        <h4><%= @gallary.name %></h4>
+        <p><%= @gallary.bio %></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,10 @@ class Gallary < ApplicationRecord
   end
 
   def photo_url
-    self.pictures.first.photo_url
+    if self.pictures.present?
+      return self.pictures.first.photo_url
+    else
+      return 'default.png'
+    end
   end
 end

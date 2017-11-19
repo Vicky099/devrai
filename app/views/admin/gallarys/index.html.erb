@@ -1,56 +1,21 @@
-<div class="blog">
+<div class="news">
   <div class="container">
-    <div class="post">
-      <h2>Blog Post</h2>
-      <img src="images/single.jpg" alt=" " />
-      <h3>Curabitur bibendum aliquet feugiat.</h3>
-      <p>Phasellus sagittis lacus sed neque malesuada, nec viverra nisl sollicitudin. Praesent id ipsum ac justo gravida semper. Sed sagittis et lacus eget commodo. Morbi vel suscipit tortor, sit amet hendrerit mauris. Pellentesque eu orci placerat, facilisis tellus vel, dignissim odio. Nullam tincidunt fringilla magna</p>
-    </div>
-    <div class="leave">
-      <h3>Leave a comment</h3>
-        <form action="#" method="post">
-          <input type="text" name="Name" placeholder="Name" required="">
-          <input type="email" name="Email" placeholder="Email" required="">
-          <textarea name="comment" placeholder="Comment" required=""></textarea>
-          <input type="submit" value="Send">
-        </form>
-    </div>
-    <div class="comments">
-      <h3>Comments</h3>
-      <div class="cmnt-set1">
-        <div class="col-md-2 cus-img">
-          <a href="#"><img src="images/c1.jpg" class="img-responsive" alt=""></a>
-        </div>
-        <div class="col-md-10 cus-text">
-          <a href="#"><h4>Customer</h4></a>
-          <h5>Oct 10, 2016</h5>
-           <p>Duis enim quam, faucibus eu leo id, accumsan lobortis diam. Cras semper, ante at pellentesque scelerisque, urna lacus faucibus ipsum, vel mollis eros metus id eros. </p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div class="cmnt-set2">
-        <div class="col-md-2 cus-img">
-          <a href="#"><img src="images/c2.jpg" class="img-responsive" alt=""></a>
-        </div>
-        <div class="col-md-10 cus-text">
-          <a href="#"><h4>Customer</h4></a>
-          <h5>Oct 10, 2016</h5>
-           <p>Duis enim quam, faucibus eu leo id, accumsan lobortis diam. Cras semper, ante at pellentesque scelerisque, urna lacus faucibus ipsum, vel mollis eros metus id eros. </p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div class="cmnt-set3">
-        <div class="col-md-2 cus-img">
-          <a href="#"><img src="images/c3.jpg" class="img-responsive" alt=""></a>
-        </div>
-        <div class="col-md-10 cus-text">
-          <a href="#"><h4>Customer</h4></a>
-          <h5>Oct 10, 2016</h5>
-           <p>Duis enim quam, faucibus eu leo id, accumsan lobortis diam. Cras semper, ante at pellentesque scelerisque, urna lacus faucibus ipsum, vel mollis eros metus id eros. </p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
+    <h3>Gallary</h3>
+      <% @gallary.each do |image| %>
+        <div class="col-md-6">
+          <div class="agileits_news_grid_left_gridl">
+            <% photo_date = (image.photo_date || image.created_at) %>
+            <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
+          </div>
+          <div class="agileits_news_grid_left_gridr">
+            <div class="cus-img">
+              <%= image_tag image.photo_url, class: "img-responsive"%>
+            </div>
+            <h4><%= link_to "#{image.name}", admin_gallary_path(image.id), class: 'btn btn-link' %></h4>
+            <p><%= image.bio %></p>
+          </div>
+          <div class="clearfix"> </div>
+        </div><br/>
+      <% end %>
   </div>
 </div>
-<!-- newsletter -->

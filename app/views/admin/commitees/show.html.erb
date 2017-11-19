@@ -1,0 +1,16 @@
+<div class="news">
+  <div class="container">
+    <h3>Commitee Member</h3>
+    <div class="col-md-6">
+      <div class="agileits_news_grid_left_gridl">
+        <p class="para1"><%= @commitee.created_at.day %><span><%= @commitee.created_at.strftime("%b-%Y")%></span></p>
+      </div>
+      <div class="agileits_news_grid_left_gridr">
+        <%= image_tag @commitee.photo_url, class: "img-responsive"%>
+        <h4><%= @commitee.name %></h4>
+        <% biodata = " - Biodata: #{@commitee.bio}" if @commitee.bio.present? %>
+        <p><%= " Designation: #{@commitee.designation} #{biodata}" %></p>
+      </div>
+    </div>
+  </div>
+</div>
