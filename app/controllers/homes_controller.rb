@@ -8,4 +8,8 @@ class HomesController < ApplicationController
   def community
     @sub_header = true
   end
+
+  def news
+    @news = News.includes(:picture)
+  end
 end

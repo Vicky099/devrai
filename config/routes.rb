@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   match 'admin', to: 'admin/dashboards#index', via: :get
   match 'community', to: 'homes#community', via: :get
+  match 'news', to: 'homes#news', via: :get
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

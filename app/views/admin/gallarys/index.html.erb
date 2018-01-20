@@ -1,20 +1,31 @@
 <div class="news">
   <div class="container">
     <h3>Gallary</h3>
-      <% @gallary.each do |image| %>
-        <div class="col-md-6">
-          <div class="agileits_news_grid_left_gridl">
-            <% photo_date = (image.photo_date || image.created_at) %>
-            <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
-          </div>
-          <div class="agileits_news_grid_left_gridr">
-            <div class="cus-img">
-              <%= image_tag image.photo_url, class: "img-responsive"%>
-            </div>
-            <h4><%= link_to "#{image.name}", admin_gallary_path(image.id), class: 'btn btn-link' %></h4>
-          </div>
-          <div class="clearfix"> </div>
-        </div><br/>
-      <% end %>
+    <div class="agileits_news_grids">
+      <div class="tab-1 resp-tab-content">
+        <div class="load_more">
+          <ul id="myList">
+            <li>
+              <div class="l_g">
+                <% @gallary.each do |image| %>
+                  <div class="col-md-6 agileits_news_grid_left">
+                    <div class="agileits_news_grid_left_gridl">
+                      <% photo_date = (image.photo_date || image.created_at) %>
+                      <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
+                    </div>
+                    <div class="agileits_news_grid_left_gridr">
+                      <%= cl_image_tag(image.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                      <h4><%= link_to "#{image.name}", admin_gallary_path(image.id), class: 'btn btn-link' %></h4>
+                      <p><%= "Devrai's best images." %></p>
+                      <hr/>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<table>
+  <th>Title</th>
+  <th>Description</th>
+  <th>Event Date</th>
+  <tbody>
+    <% @news.each do |news| %>
+      <tr><%= news.title %></tr>
+      <tr><%= news.description %></tr>
+      <tr><%= news.event_date %></tr>
+    <% end %>
+  </tbody>
+</table>

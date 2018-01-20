@@ -10,11 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require rails-ujs
+//= require twitter/bootstrap
 //= require turbolinks
-//= require bootstrap
+//= require jquery-1.11.1.min
+//= require bootstrap.min
 //= require_tree .
 
 $(function() {
@@ -51,16 +54,8 @@ $(function() {
   $('.cm-overlay').cmOverlay();
   $('.example1').wmuSlider();
 
-  size_li = $("#myList li").size();
-  x=1;
-  $('#myList li:lt('+x+')').show();
-  $('#loadMore').click(function () {
-    x= (x+1 <= size_li) ? x+1 : size_li;
-    $('#myList li:lt('+x+')').show();
-  });
-  $('#showLess').click(function () {
-    x=(x-1<0) ? 1 : x-1;
-    $('#myList li').not(':lt('+x+')').hide();
+  $(".notice_text, .notice, .error").fadeOut(60000, function(){
+    $(this).html("");
   });
 
 });

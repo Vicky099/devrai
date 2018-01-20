@@ -217,13 +217,14 @@ a.book.popup-with-zoom-anim.button-isi.zoomIn.animated  span.glyphicon.glyphicon
 	background:url(../assets/banner.jpg) no-repeat 0px -150px;
 	background-size:cover;
 	min-height:624px;
-	padding-top:10%;
+	padding-top:9%;
 }
 .sub-banner{
 	background:url(../assets/banner.jpg) no-repeat 0px -450px;
 	background-size:cover;
 	min-height:200px;
 }
+
 
  .banner-text-w3ls {
     width: 40%;
@@ -232,6 +233,10 @@ a.book.popup-with-zoom-anim.button-isi.zoomIn.animated  span.glyphicon.glyphicon
     text-align: left;
     padding: 60px;
     position: relative;
+}
+
+.banner-text-w3ls.signupform{
+  width: 60%;
 }
 .banner-text-w3ls h2{
 	text-align:left;
@@ -609,7 +614,6 @@ ul.wmuSliderPagination {
 }
 /*-- load-more --*/
 #myList li{
-	display:none;
 	list-style-type:none;
 	margin-bottom:3em;
 }
@@ -762,11 +766,11 @@ textarea.message {
 .footer{
 	/*padding:30px 0;*/
   background-color: #F3F3F3;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  clear: both;
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    height: 65px;
 }
 .agilefootergrid.footer-nav ul li,.social-icons ul li{
     display: inline;
@@ -1686,3 +1690,11 @@ textarea.message {
 
 }
 /*-- //responsive--*/
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #C4BDBD;
+    margin: 1em 0;
+    padding: 0;
+  }

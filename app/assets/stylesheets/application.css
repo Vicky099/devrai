@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require font-awesome
+ *= require bootstrap
  *= require style
  *= require_self
  */
@@ -27,4 +28,26 @@
     bottom: 0;
     right: 0px !important;
     margin: 3% 0% 0% 0%;
+}
+
+.notice.aalert {
+  margin-bottom: 0;
+}
+.wrapper{
+  min-height: 100%;
+  margin-bottom: -65px;
+}
+html,body{
+  height:100%;
+}
+
+/*card css*/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+}
+
+.card img {
+    border-radius: 5px 5px 0 0;
 }

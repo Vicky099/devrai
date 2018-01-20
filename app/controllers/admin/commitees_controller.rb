@@ -13,6 +13,7 @@ class Admin::CommiteesController < ApplicationController
 
   def create
     commitee = Commitee.new(commitee_params)
+    commitee.build_picture(photo: params['commitee']['photo'])
     if commitee.save
       flash[:success] = "Commitee Member added succssfully."
       redirect_to admin_path

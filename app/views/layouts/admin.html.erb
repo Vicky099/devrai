@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -13,10 +14,7 @@
 
   <body>
     <%= render '/layouts/sub_header', sub_header: true %>
-    <% if notice || alert %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render "layouts/flash_message" %>
     <%= yield %>
     <%= render '/layouts/footer' %>
   </body>

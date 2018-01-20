@@ -12,8 +12,8 @@
                     <p class="para1"><%= news.event_date.day %><span><%= news.event_date.strftime("%b-%Y")%></span></p>
                   </div>
                   <div class="agileits_news_grid_left_gridr">
-                    <%= image_tag news.photo_url, class: "img-responsive"%>
-                    <h4><%= news.title %></h4>
+                    <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                    <h4><%=link_to news.title , "#" %></h4>
                     <p><%= news.description %></p>
                   </div>
                   <div class="clearfix"> </div>
@@ -23,7 +23,7 @@
             </div>
           </li>
         </ul>
-        <div><%= link_to "More News", "#", class: 'btn btn-default' %></div>
+        <div><%= link_to "More News", news_path, class: 'btn btn-default' %></div>
       </div>
     </div>
   </div>

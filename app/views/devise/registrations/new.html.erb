@@ -1,54 +1,70 @@
-<div class="banner-w3l">
-  <div class="banner-text-w3ls" style="color:white;">
+<div class="banner-w3l" style="padding: 6% !important;">
+  <div class="banner-text-w3ls signupform" style="color:white;">
     <h3>Member Registration</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="form-group">
-          <%= f.label :full_name%>
-          <%= f.text_field :full_name, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "full_name", 'Name') %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.text_field :full_name, class: 'form-control', required: true, placeholder: 'Your Name' %>
+              <%= display_error_message(@errors, "full_name", 'Name') %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!--<div class="form-group">
+              <%= f.label :date_of_birth%>
+              <%= f.date_field :date_of_birth, class: 'form-control', required: true %>
+              <%= display_error_message(@errors, "date_of_birth", 'Date of Birth') %>
+            </div>-->
+            <div class="form-group">
+              <%= f.text_field :contact_no, class: 'form-control', required: true, placeholder: 'Contact No.' %>
+              <%= display_error_message(@errors, "contact_no", 'Contact No') %>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <%= f.label :date_of_birth%>
-          <%= f.date_field :date_of_birth, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "date_of_birth", 'Date of Birth') %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.text_area :address, class: 'form-control', required: true, placeholder: 'Your Address' %>
+              <%= display_error_message(@errors, "address") %>
+            </div>
+          </div>
+          <div class="col-md-6">
+             <div class="form-group">
+              <%= f.text_field :state, class: 'form-control', required: true, placeholder: 'State' %>
+              <%= display_error_message(@errors, "state") %>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <%= f.label :contact_no %>
-          <%= f.text_field :contact_no, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "contact_no", 'Contact No') %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.text_field :city, class: 'form-control', required: true, placeholder: 'City' %>
+              <%= display_error_message(@errors, "city") %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, class: 'form-control', required: true, placeholder: 'Email' %>
+              <%= display_error_message(@errors, "email") %>
+            </div>
+          </div>
         </div>
-         <div class="form-group">
-          <%= f.label :address %>
-          <%= f.text_area :address, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "address") %>
-        </div>
-        <div class="form-group">
-          <%= f.label :state%>
-          <%= f.text_field :state, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "state") %>
-        </div>
-        <div class="form-group">
-          <%= f.label :city %>
-          <%= f.text_field :city, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "city") %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email%><br />
-          <%= f.email_field :email, autofocus: true, class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "email") %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "password") %>
-        </div>
-        <div>
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true %>
-          <%= display_error_message(@errors, "password_confirmation", 'Confirm password') %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <% if @minimum_password_length %>
+                <% min_length = @minimum_password_length %>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control', required: true , placeholder: "Password (#{min_length} characters minimum)" %>
+              <%= display_error_message(@errors, "password") %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true, placeholder: 'Confirm your password' %>
+              <%= display_error_message(@errors, "password_confirmation", 'Confirm password') %>
+            </div>
+          </div>
         </div>
         <% if devise_mapping.rememberable? -%>
           <div class="form-group">

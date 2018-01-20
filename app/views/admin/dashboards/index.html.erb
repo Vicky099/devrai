@@ -1,3 +1,8 @@
+<style type="text/css">
+  h4,h5{
+    text-align: left !important;
+  }
+</style>
 <div class="blog">
   <div class="container">
     <div class="leave">
@@ -10,25 +15,23 @@
     <h3>Recent activity in admin panel</h3>
   </div>
 </div>
+
 <% if @news.present? %>
   <div class="blog">
     <div class="container">
-      <div class="comments">
-        <h3>News</h3>
-        <% @news.each do |news| %>
-          <div class="cmnt-set1">
-            <div class="col-md-2 cus-img">
-              <%= image_tag news.photo_url, class: "img-responsive"%>
-            </div>
-            <div class="col-md-10 cus-text">
-              <a href="<%= admin_news_path(news.id) %>"><h4><%= news.title %></h4></a>
-              <h5><%= news.event_date.strftime("%Y-%m-%d")%></h5>
-              <p><%= news.description %></p>
-            </div>
-            <div class="clearfix"></div>
-          </div></br>
-        <% end %>
-      </div>
+      <h3>News</h3>
+      <% @news.each do |news| %>
+        <div class="row">
+          <div class="col-md-2">
+            <%= cl_image_tag(news.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%>
+          </div><br/>
+          <div class="col-md-10">
+            <h4 ><%= link_to news.title, admin_news_path(news.id)%></h4>
+            <h5 style="text-align: left;"><%= news.event_date.strftime("%Y-%m-%d")%></h5>
+            <p><%= news.description %></p>
+          </div>
+        </div><br>
+      <% end %>
       <%= link_to "View More", admin_news_index_path, class: 'btn btn-link' %>
     </div>
   </div>
@@ -36,46 +39,41 @@
 <% if @gallarys.present? %>
   <div class="blog">
     <div class="container">
-      <div class="comments">
-        <h3>Photos</h3>
-        <% @gallarys.each do |image| %>
-          <div class="cmnt-set1">
-            <div class="col-md-2 cus-img">
-              <%= image_tag image.photo_url, class: "img-responsive"%>
-            </div>
-            <div class="col-md-10 cus-text">
-              <a href="<%= admin_gallary_path(image.id) %>"><h4><%= image.name %></h4></a>
-              <h5><%= image.created_at.strftime("%Y-%m-%d") %></h5>
-              <p><%= "Devrai's best images." %></p>
-            </div>
-            <div class="clearfix"></div>
+      <h3>Photos</h3>
+      <% @gallarys.each  do |image| %>
+        <div class="row">
+          <div class="col-md-2">
+            <%= cl_image_tag(image.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%>
           </div><br/>
-        <% end %>
-      </div>
+          <div class="col-md-10">
+            <h4><%= link_to image.name, admin_gallary_path(image.id)%></h4>
+            <h5><%= image.created_at.strftime("%Y-%m-%d")%></h5>
+            <p><%= "Devrai's best images." %></p>
+          </div>
+        </div><br>
+      <% end %>
       <%= link_to "View More", admin_gallarys_path, class: 'btn btn-link' %>
     </div>
   </div>
 <% end %>
+
 <% if @commitees.present? %>
   <div class="blog">
     <div class="container">
-      <div class="comments">
-        <h3>Members</h3>
-        <% @commitees.each do |member| %>
-          <div class="cmnt-set1">
-            <div class="col-md-2 cus-img">
-              <%= image_tag member.photo_url, class: "img-responsive"%>
-            </div>
-            <div class="col-md-10 cus-text">
-              <a href="<%= admin_commitee_path(member.id) %>"><h4><%= member.name %></h4></a>
-              <h5><%= member.created_at.strftime("%Y-%m-%d")%></h5>
-              <% biodata = " - Biodata: #{member.bio}" if member.bio.present? %>
-              <p><%= " Designation: #{member.designation} #{biodata}" %></p>
-            </div>
-            <div class="clearfix"></div>
-          </div></br>
-        <% end %>
-      </div>
+      <h3>Members</h3>
+      <% @commitees.each  do |member| %>
+        <div class="row">
+          <div class="col-md-2">
+            <%= cl_image_tag(member.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%>
+          </div><br/>
+          <div class="col-md-10">
+            <h4><%= link_to member.name, admin_commitee_path(member.id)%></h4>
+            <h5><%= member.created_at.strftime("%Y-%m-%d")%></h5>
+            <% biodata = " - Biodata: #{member.bio}" if member.bio.present? %>
+            <p><%= " Designation: #{member.designation} #{biodata}" %></p>
+          </div>
+        </div><br>
+      <% end %>
       <%= link_to "View More", admin_commitees_path, class: 'btn btn-link' %>
     </div>
   </div>

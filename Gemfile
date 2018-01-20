@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem "font-awesome-rails"
 gem "twitter-bootstrap-rails"
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 gem 'jquery-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'pg'
