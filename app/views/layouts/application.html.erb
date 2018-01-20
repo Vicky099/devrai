@@ -19,8 +19,9 @@
       <%= render '/layouts/header', sub_header: (@sub_header || false) %>
       <%= render "layouts/flash_message" %>
       <%= yield %>
+      <%= render '/layouts/footer' %>
     </div>
-    <%= render '/layouts/footer' %>
+
   </body>
 
 </html>
