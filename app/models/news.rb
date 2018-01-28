@@ -1,5 +1,5 @@
 class News < ApplicationRecord
-  has_one :picture, as: :imageable
+  has_one :picture, as: :imageable, dependent: :destroy
 
   def photo_url
     if self.picture.present?

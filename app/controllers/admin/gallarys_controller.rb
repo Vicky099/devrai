@@ -15,9 +15,8 @@ class Admin::GallarysController < ApplicationController
 
   def create
     gallary = Gallary.new(gallary_params)
+    gallary.build_picture(photo: params[:gallary][:photo])
     if gallary.save
-      #gallary.pictures.build(photo: photo).save!
-      Gallary.save_picture(gallary, params[:gallary][:photo])
       flash[:success] = "Memories created successfully."
       redirect_to admin_gallarys_path
     else

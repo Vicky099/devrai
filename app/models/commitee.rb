@@ -1,6 +1,6 @@
 class Commitee < ApplicationRecord
-  mount_uploader :photo, ImageUploader
-  has_one :picture, as: :imageable
+  #mount_uploader :photo, ImageUploader
+  has_one :picture, as: :imageable, dependent: :destroy
 
   def photo_url
     if self.picture.present?
