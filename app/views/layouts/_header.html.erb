@@ -1,6 +1,6 @@
 <div class="header-top-w3layouts" id="header">
   <div class="container">
-    <div class="col-md-8 navigation">
+    <div class="col-md-12 navigation">
       <nav class="navbar navbar-default">
       <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -18,36 +18,21 @@
               <li><a href="#works" class="scroll"><span data-hover="Our Works">Our Works</span></a></li>
               <li><a href="#thoughts" class="scroll"><span data-hover="Thoughts">Thoughts</span></a></li>
               <li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+              <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                  <li><%= link_to 'Admin Panel', admin_path %></li>
+                  <li><%= link_to 'Devrai Community', community_path %></li>
+                <% end %>
+                <li><%= link_to 'Logout', logout_path %></li>
+              <% else %>
+                <li><%= link_to 'Login', new_user_session_path %></li>
+                <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <% end %>
             </ul>
           </nav>
         </div>
-        </div>
       </nav>
     </div>
-    <div class="col-md-4 sign-up">
-      <% if user_signed_in? %>
-        <% if current_user.admin? %>
-          <%= link_to admin_path, :class=>"btn btn-default" do %>
-            <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Admin Panel
-          <% end %>
-        <% else %>
-          <%= link_to community_path, :class=>"btn btn-default" do %>
-            <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Devarai Community
-          <% end %>
-        <% end %>
-        <%= link_to logout_path, :class=>"btn btn-primary" do %>
-          <span class="glyphicon glyphicon-exit" aria-hidden="true"></span>Logout
-        <% end %>
-      <% else %>
-        <%= link_to admin_dashboards_path, :class=>"btn btn-primary" do %>
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login
-        <% end %>
-        <%= link_to new_user_registration_path, :class=>"btn btn-default" do %>
-          <span class="glyphicon glyphicon-user" area-hidden="true"></span> Sign Up
-        <% end %>
-      <% end %>
-    </div>
-    <div class="clearfix"></div>
   </div>
 </div>
 <%= render "layouts/sub_header", sub_header: (sub_header || false) %>
