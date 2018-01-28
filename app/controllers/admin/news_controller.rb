@@ -1,6 +1,6 @@
 class Admin::NewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :verify_admin_user
+  before_action :verify_admin_user, except:[:show]
   layout "admin"
 
   def index

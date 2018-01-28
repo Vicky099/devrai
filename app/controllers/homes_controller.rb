@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-
+  layout "application"
   def index
     @members = Commitee.last(4)
     @news = News.last(2)
@@ -10,6 +10,7 @@ class HomesController < ApplicationController
   end
 
   def news
+    @sub_header = true
     @news = News.includes(:picture)
   end
 end

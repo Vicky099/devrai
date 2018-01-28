@@ -1,12 +1,31 @@
-<table>
-  <th>Title</th>
-  <th>Description</th>
-  <th>Event Date</th>
-  <tbody>
-    <% @news.each do |news| %>
-      <tr><%= news.title %></tr>
-      <tr><%= news.description %></tr>
-      <tr><%= news.event_date %></tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="news">
+  <div class="container">
+    <h3>All News</h3>
+    <div class="agileits_news_grids">
+      <div class="tab-1 resp-tab-content">
+        <div class="load_more">
+          <ul id="myList">
+            <li>
+              <div class="l_g">
+                <% @news.each do |news| %>
+                  <div class="col-md-6 agileits_news_grid_left">
+                    <div class="agileits_news_grid_left_gridl">
+                      <p class="para1"><%= news.event_date.day %><span><%= news.event_date.strftime("%b-%Y")%></span></p>
+                    </div>
+                    <div class="agileits_news_grid_left_gridr">
+                      <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                      <h4><%= link_to "#{news.title}", admin_news_path(news.id), class: 'btn btn-link' %></h4>
+                      <p><%= news.description %></p>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                <% end %>
+                <div class="clearfix"> </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
