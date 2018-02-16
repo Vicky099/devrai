@@ -28,9 +28,11 @@
 <!-- //news -->
 
 <!-- commitee -->
-<div class="team">
-  <%= render "commitee" %>
-</div>
+<% if @members.present? %>
+  <div class="team">
+    <%= render "commitee" %>
+  </div>
+<% end %>
 <!-- //commitee -->
 
 <!-- contact -->
