@@ -99,3 +99,15 @@ table.gradienttable td {
   border-left: 1px solid #fcfdec;;
   border-right:0px;
 }
+
+.custom-input-field{
+  padding: 14px 15px;
+  width: 100%;
+  color: #555;
+  background-color: #fff;
+  font-size: 1em;
+  border: 1px solid #eee;
+  outline: none;
+  display: block;
+  margin-bottom: 20px;
+}

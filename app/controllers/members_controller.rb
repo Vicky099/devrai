@@ -33,7 +33,7 @@ class MembersController < ApplicationController
 
   def update
     member = Member.find_by_id(params[:id])
-    member.build_picture(photo: params[:member][:photo])
+    member.build_picture(photo: params[:member][:photo]) if params[:member][:photo].present?
     if member.update_attributes(member_params)
       flash[:success] = "Your Profile updated successfully."
       redirect_to member_path(member.id)

@@ -15,8 +15,8 @@ class Member < ApplicationRecord
   validates :about_me, presence: true
   validates :about_devrai, presence: true
 
-  enum gender: {male: 0, female: 1}
-  enum membership: {active: 0, inactive: 1}
+  enum gender: {male: '0', female: '1'}
+  enum membership: {active: '0', inactive: '1'}
 
   def photo_url
     if self.picture.present?

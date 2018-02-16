@@ -8,7 +8,7 @@
     <div class="form-group" id="profile-image">
       <%= cl_image_tag(@member.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%>
       <div id="upload_button">
-      <%= f.file_field :photo, required: true, class: "upload", onchange: "readURL(this);"%></br>
+      <%= f.file_field :photo, class: "upload", onchange: "readURL(this);"%></br>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <%= f.text_field :gender, placeholder: 'Gender', required: true %>
+      <%= f.select(:gender, Member.genders.keys, {prompt: 'Select gender'}, {:class => 'custom-input-field'}) %>
     </div>
   </div>
   <div class="col-md-6">
@@ -67,9 +67,14 @@
       <%= f.text_field :state, placeholder: 'State', required: true %>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-2">
     <div class="form-group">
-      <%= f.text_field :membership, placeholder: 'Membership', required: true %>
+      <%= f.label "No of Tree Planted by you : " %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.text_field :tree_planted_count, placeholder: 'Tree Planted Count', required: true %>
     </div>
   </div>
 </div>
@@ -85,15 +90,12 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-3">
-    <div class="form-group">
-      <%= f.label "No of Tree Planted by you : " %>
+<% if current_user && current_user.admin? %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.select(:membership, Member.memberships.keys, {prompt: 'Membership status'},{:class => 'custom-input-field'}) %>
+      </div>
     </div>
   </div>
-  <div class="col-md-8">
-    <div class="form-group">
-      <%= f.text_field :tree_planted_count, placeholder: 'Tree Planted Count', required: true %>
-    </div>
-  </div>
-</div>
+<% end %>
