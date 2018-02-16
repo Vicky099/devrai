@@ -3,8 +3,7 @@ class MembersController < ApplicationController
   before_action :verify_admin_user, only: [:destroy]
 
   def index
-    @members = Member.order('id desc')
-    @news = News.order('id desc')
+    @members = Member.order('id desc').paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
