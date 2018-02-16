@@ -15,7 +15,13 @@
           <td><%= "#{member.firstname} #{member.lastname}" %></td>
           <td><%= "#{member.village}, #{member.taluka}, #{member.district}" %></td>
           <td><%= member.mobile_number %></td>
-          <td><%= link_to 'edit', edit_member_path(member.id) %> / <%= link_to 'show', member_path(member.id) %> / <%= link_to 'delete', member_path(member.id), method: :delete %></td>
+          <td>
+            <%= link_to 'edit', edit_member_path(member.id) %>
+            / <%= link_to 'show', member_path(member.id) %>
+            <% if current_user && current_user.admin? %>
+               / <%= link_to 'delete', member_path(member.id), method: :delete %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>

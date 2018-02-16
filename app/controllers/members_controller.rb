@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   layout 'application'
+  before_action :verify_admin_user, only: [:destroy]
 
   def index
     @members = Member.order('id desc')
