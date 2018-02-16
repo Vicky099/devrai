@@ -1,5 +1,8 @@
-class News < ApplicationRecord
+class Member < ApplicationRecord
   has_one :picture, as: :imageable, dependent: :destroy
+
+  enum gender: {male: 0, female: 1}
+  enum membership: {active: 0, inactive: 1}
 
   def photo_url
     if self.picture.present?

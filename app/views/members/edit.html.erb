@@ -1,0 +1,11 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Update Information</h3>
+        <%= form_for @member, :url => member_path, :method => :put do |f| %>
+          <%= render :partial=>'form', locals:{f: f} %>
+          <%= f.submit "Register Yourself" %>
+        <% end %>
+    </div>
+  </div>
+</div>

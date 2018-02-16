@@ -1,0 +1,104 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Show Information - <%= @member.firstname %></h3>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><%= cl_image_tag(@member.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>First Name : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.firstname %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>Last Name : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.lastname %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>Gender : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.gender %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>Mobile No. : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.mobile_number %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>Email Id : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.email_id %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>Village : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.village %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>Taluka : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.taluka %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>District : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.district %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>State : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.state %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>Membership : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.membership %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>About Devrai : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.about_devrai %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group"><b>About You : </b></div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group"><%= @member.about_me %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group"><b>Tree Planted : </b></div>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group"><%= @member.tree_planted_count %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

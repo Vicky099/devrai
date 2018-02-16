@@ -13,7 +13,7 @@ default: &default
 
 development:
   <<: *default
-  database: devrai
+  database: devrai1
 
 
 # Warning: The database defined as "test" will be erased and

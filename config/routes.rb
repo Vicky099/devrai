@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :homes
+  resources :members
   namespace :admin do
     resources :gallarys
     resources :dashboards, only: [:index] do

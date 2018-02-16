@@ -64,7 +64,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Email configuration
-  config.action_mailer.default_url_options = { :host => 'https://devrai.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://www.shivdevrai.com' }
   ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',

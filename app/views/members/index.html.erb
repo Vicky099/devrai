@@ -1,0 +1,24 @@
+<div class="news">
+  <div class="container">
+    <h3>Tree Lover's</h3>
+    <%= link_to 'Register', new_member_path, class: 'btn btn-primary' %>
+    <br/><br/>
+    <table class="gradienttable">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No.</th>
+        <th>Action</th>
+      </tr>
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= "#{member.firstname} #{member.lastname}" %></td>
+          <td><%= "#{member.village}, #{member.taluka}, #{member.district}" %></td>
+          <td><%= member.mobile_number %></td>
+          <td><%= link_to 'edit', edit_member_path(member.id) %> / <%= link_to 'show', member_path(member.id) %> / <%= link_to 'delete', member_path(member.id), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="clearfix"> </div>
+  </div>
+</div>

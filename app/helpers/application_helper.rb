@@ -18,4 +18,9 @@ module ApplicationHelper
     end
   end
 
+  def all_trees_counter
+    tree_count = Member.pluck(:tree_planted_count).sum
+    return tree_count + 10000
+  end
+
 end
