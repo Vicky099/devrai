@@ -11,8 +11,8 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def delete_data
-    @commitees = Commitee.includes(:picture)
-    @news = News.includes(:picture)
-    @gallarys = Gallary.includes(:picture)
+    @commitees = Commitee.includes(:picture).paginate(:page => params[:page], :per_page => 10)
+    @news = News.includes(:picture).paginate(:page => params[:page], :per_page => 10)
+    @gallarys = Gallary.includes(:picture).paginate(:page => params[:page], :per_page => 10)
   end
 end

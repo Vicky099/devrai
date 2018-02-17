@@ -3,7 +3,7 @@
     <div class="container">
       <div class="comments">
         <h3>News</h3>
-        <table>
+        <table class="gradienttable">
           <th>Title</th>
           <th>Description</th>
           <th>Action</th>
@@ -15,6 +15,7 @@
             </tr>
             <div class="clearfix"></div>
           <% end %>
+          <%= will_paginate(@news)%>
         </table>
       </div>
     </div>
@@ -25,7 +26,7 @@
     <div class="container">
       <div class="comments">
         <h3>Photos</h3>
-        <table>
+        <table class="gradienttable">
           <th>Name</th>
           <th>Action</th>
           <% @gallarys.each do |image| %>
@@ -35,6 +36,7 @@
             </tr>
             <div class="clearfix"></div>
           <% end %>
+          <%= will_paginate(@gallarys)%>
         </table>
       </div>
     </div>
@@ -45,7 +47,7 @@
     <div class="container">
       <div class="comments">
         <h3>Members</h3>
-        <table>
+        <table class="gradienttable">
           <th>Name</th>
           <th>Designation</th>
           <th>Action</th>
@@ -57,6 +59,7 @@
             </tr>
             <div class="clearfix"></div>
           <% end %>
+          <%= will_paginate(@commitees)%>
         </table>
       </div>
     </div>
