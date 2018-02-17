@@ -18,7 +18,7 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def all_users
-    @users = User.paginate(:page => params[:page], :per_page => 10)
+    @users = User.order('id desc').paginate(:page => params[:page], :per_page => 10)
   end
 
   def make_admin
