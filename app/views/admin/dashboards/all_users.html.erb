@@ -1,0 +1,31 @@
+<div class="news">
+  <div class="container">
+    <h3>User Data</h3>
+    <br/><br/>
+    <table class="gradienttable">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email ID</th>
+        <th>Contact No.</th>
+        <th>Admin</th>
+        <th>Action</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.full_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.contact_no %></td>
+          <td><%= user.admin? %></td>
+          <td>
+            <%= render :partial=> 'admin_actions', locals:{user: user} %>
+            <%= render :partial=> 'active_actions', locals:{user: user} %>
+          </td>
+        </tr>
+      <% end %>
+      <%= will_paginate(@users)%>
+    </table>
+    <div class="clearfix"> </div>
+  </div>
+</div>

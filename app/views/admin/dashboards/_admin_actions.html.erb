@@ -1,0 +1,8 @@
+<% user = (@user || user) %>
+<% if current_user != user %>
+  <% if user.admin? %>
+    <%= link_to "Remove admin", make_admin_admin_dashboard_path(id: user.id, :admin=>false), remote: true, class: 'make-admin' %>
+  <% else %>
+    <%= link_to "Make admin", make_admin_admin_dashboard_path(id: user.id, :admin=>true), remote: true, class: 'make-admin' %>
+  <% end %>
+<% end %>

@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index] do
       collection do
         get :delete_data
+        get :all_users
+      end
+      member do
+        get :make_admin
+        get :suspend_user
       end
     end
     resources :commitees

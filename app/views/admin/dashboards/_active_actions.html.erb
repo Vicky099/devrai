@@ -1,0 +1,8 @@
+<% user = (@user || user) %>
+<% if current_user != user %>
+  <% if user.active? %>
+    <%= link_to '/ Suspend user', suspend_user_admin_dashboard_path(id: user.id, :active=>false), remote: true, class: 'make-active' %>
+  <% else %>
+    <%= link_to '/ Unsuspend user', suspend_user_admin_dashboard_path(id: user.id, :active=>true), remote: true, class: 'make-active' %>
+  <% end %>
+<% end %>
