@@ -1,0 +1,25 @@
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <% news_list.each_with_index do |news, index| %>
+      <% total_news_count = @news.size %>
+      <% news_index = index+1 %>
+      <div class="mySlides">
+        <div class="numbertext"><%= news_index %> / <%= total_news_count %></div>
+        <%= cl_image_tag(news.photo_url,:crop => :fill) %>
+      </div>
+    <% end %>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+    <% news_list.each_with_index do |news, index| %>
+      <% news_index = index+1 %>
+      <div class="column">
+        <%= cl_image_tag(news.photo_url, :width => 225, :height => 193, :crop => :fill, :onclick=>"currentSlide(#{news_index})", :class=>"demo cursor", :alt=>"#{news.title}") %>
+      </div>
+    <% end %>
+  </div>
+</div>

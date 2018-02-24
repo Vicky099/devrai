@@ -1,0 +1,11 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Update Image</h3>
+        <%= form_for @gallary, :url => admin_gallary_path, :method => :put do |f| %>
+          <%= render partial: 'form', locals:{f: f, action: 'Update Now'} %>
+        <% end %>
+    </div>
+  </div>
+</div>
+<!-- newsletter -->

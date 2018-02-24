@@ -11,7 +11,7 @@
             <tr>
               <td><%= news.title %></td>
               <td><%= news.description %></td>
-              <td><%= link_to "delete", admin_news_path(news.id), method: :DELETE, class: 'btn btn-link' %></td>
+              <td><%= link_to 'Edit', edit_admin_news_path(news.id), class: 'btn btn-link' %> / <%= link_to "delete", admin_news_path(news.id), method: :DELETE, class: 'btn btn-link' %></td>
             </tr>
             <div class="clearfix"></div>
           <% end %>
@@ -32,7 +32,7 @@
           <% @gallarys.each do |image| %>
             <tr>
               <td><%= image.name %></td>
-              <td><%= link_to "delete", admin_gallary_path(image.id), method: :DELETE, class: 'btn btn-link' %></td>
+              <td><%= link_to 'Edit', edit_admin_gallary_path(image.id), class: 'btn btn-link' %> / <%= link_to "delete", admin_gallary_path(image.id), method: :DELETE, class: 'btn btn-link' %></td>
             </tr>
             <div class="clearfix"></div>
           <% end %>
@@ -55,7 +55,7 @@
             <tr>
               <td><%= member.name %></td>
               <td><%= member.designation %></td>
-              <td><%= link_to "delete", admin_commitee_path(member.id), method: :DELETE, class: 'btn btn-link' %></td>
+              <td><%= link_to 'Edit', edit_admin_commitee_path(member.id), class: 'btn btn-link' %> / <%= link_to "delete", admin_commitee_path(member.id), method: :DELETE, class: 'btn btn-link' %></td>
             </tr>
             <div class="clearfix"></div>
           <% end %>

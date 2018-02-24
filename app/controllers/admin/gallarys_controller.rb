@@ -2,11 +2,12 @@ class Admin::GallarysController < ApplicationController
   include Sidekiq::Worker
   before_action :authenticate_user!, except:[:index, :show]
   before_action :verify_admin_user, except:[:index, :show]
+  before_action :find_gallary, only: [:edit, :update, :show, :destroy]
 
   layout "admin"
 
   def index
-    @gallary = Gallary.all
+    @gallary = Gallary.order('id desc').paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
@@ -26,12 +27,21 @@ class Admin::GallarysController < ApplicationController
   end
 
   def show
-    @gallary = Gallary.find_by(id: params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @gallary.build_picture(photo: params[:gallary][:photo]) if params[:gallary][:photo].present?
+    if @gallary.update_attributes(gallary_params)
+      redirect_to admin_gallary_path(@gallary.id)
+    else
+    end
   end
 
   def destroy
-    image = Gallary.find(params[:id])
-    image.destroy
+    @gallary.destroy
     flash[:success] = "Image deleted successfully"
     redirect_to delete_data_admin_dashboards_path
   end
@@ -39,6 +49,10 @@ class Admin::GallarysController < ApplicationController
   private
   def gallary_params
     params.require(:gallary).permit(:name, :id, :photo_date)
+  end
+
+  def find_gallary
+    @gallary = Gallary.find_by_id(params[:id])
   end
 
 end

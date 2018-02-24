@@ -5,19 +5,19 @@
         <div class="col-md-8  work-left-top-left">
           <div class="first-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g1.jpg', :width => 450, :height => 460, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g1.jpg', :width => 450, :height => 460, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(1)", :class=>"hover-shadow cursor")%>
             </div>
           </div>
         </div>
         <div class="col-md-4 work-left-top-right">
           <div class="second-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g2.jpg', :width => 213, :height => 213, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g2.jpg', :width => 213, :height => 213, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(2)", :class=>"hover-shadow cursor")%>
             </div>
           </div>
           <div class="third-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g3.jpg', :width => 213, :height => 213, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g3.jpg', :width => 213, :height => 213, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(3)", :class=>"hover-shadow cursor")%>
             </div>
           </div>
         </div>
@@ -30,24 +30,24 @@
       <div class="col-md-6 work-right-left">
         <div class="seventh-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g7.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g7.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(4)", :class=>"hover-shadow cursor")%>
             </div>
         </div>
         <div class="eighth-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g8.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g8.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(5)", :class=>"hover-shadow cursor")%>
             </div>
         </div>
       </div>
       <div class="col-md-6 work-right-right">
         <div class="ninth-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g9.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g9.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(6)", :class=>"hover-shadow cursor")%>
             </div>
         </div>
         <div class="tenth-img">
             <div class="view second-effect">
-              <%= cl_image_tag('g10.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset')%>
+              <%= cl_image_tag('g10.jpg', :width => 160, :height => 160, :crop => :fill, :type=>'asset', :onclick=>"openModal();currentSlide(7)", :class=>"hover-shadow cursor")%>
             </div>
         </div>
       </div>
@@ -55,5 +55,74 @@
     </div>
     <div class="clearfix"></div><br/>
     <div><%= link_to "More Photo's", admin_gallarys_path, class: 'btn btn-default' %></div>
+  </div>
+</div>
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 7</div>
+      <%= cl_image_tag('g1.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 7</div>
+      <%= cl_image_tag('g2.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 7</div>
+      <%= cl_image_tag('g3.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 7</div>
+      <%= cl_image_tag('g7.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 7</div>
+      <%= cl_image_tag('g8.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 7</div>
+      <%= cl_image_tag('g9.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">7 / 7</div>
+      <%= cl_image_tag('g10.jpg',:crop => :fill, :type=>'asset') %>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <div class="column">
+      <%= cl_image_tag('g1.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(1)", :class=>"demo cursor", :alt=>"Devrai best images (1)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g2.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(2)", :class=>"demo cursor", :alt=>"Devrai best images (2)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g3.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(3)", :class=>"demo cursor", :alt=>"Devrai best images (3)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g7.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(4)", :class=>"demo cursor", :alt=>"Devrai best images (4)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g8.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(5)", :class=>"demo cursor", :alt=>"Devrai best images (5)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g9.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(6)", :class=>"demo cursor", :alt=>"Devrai best images (6)") %>
+    </div>
+    <div class="column">
+      <%= cl_image_tag('g10.jpg', :width => 225, :height => 193, :crop => :fill, :type=>'asset', :onclick=>"currentSlide(7)", :class=>"demo cursor", :alt=>"Devrai best images (7)") %>
+    </div>
   </div>
 </div>

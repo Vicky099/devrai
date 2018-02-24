@@ -7,25 +7,52 @@
           <ul id="myList">
             <li>
               <div class="l_g">
-                <% @gallary.each do |image| %>
+                <% @gallary.each_with_index do |image, index_main| %>
+                  <% image_index_main = index_main + 1%>
                   <div class="col-md-6 agileits_news_grid_left">
                     <div class="agileits_news_grid_left_gridl">
                       <% photo_date = (image.photo_date || image.created_at) %>
                       <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
                     </div>
                     <div class="agileits_news_grid_left_gridr">
-                      <%= cl_image_tag(image.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                      <%= cl_image_tag(image.photo_url, :width => 100, :height => 150, :crop => :fill, :onclick=>"openModal();currentSlide(#{image_index_main})", :class=>"hover-shadow cursor") %>
                       <h4><%= link_to "#{image.name}", admin_gallary_path(image.id), class: 'btn btn-link' %></h4>
                       <p><%= "Devrai's best images." %></p>
                       <hr/>
                     </div>
                   </div>
                 <% end %>
+                <%= will_paginate(@gallary)%>
               </div>
             </li>
           </ul>
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <% @gallary.each_with_index do |image, index| %>
+      <% total_image_count = @gallary.size %>
+      <% image_index = index+1 %>
+      <div class="mySlides">
+        <div class="numbertext"><%= image_index %> / <%= total_image_count %></div>
+        <%= cl_image_tag(image.photo_url,:crop => :fill) %>
+      </div>
+    <% end %>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+    <% @gallary.each_with_index do |image, index| %>
+      <% image_index = index+1 %>
+      <div class="column">
+        <%= cl_image_tag(image.photo_url, :width => 225, :height => 193, :crop => :fill, :onclick=>"currentSlide(#{image_index})", :class=>"demo cursor", :alt=>"Devrai best images (#{image_index})") %>
+      </div>
+    <% end %>
   </div>
 </div>

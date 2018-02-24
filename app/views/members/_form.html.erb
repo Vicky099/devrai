@@ -6,7 +6,7 @@
   </div>
   <div class="col-md-2">
     <div class="form-group" id="profile-image">
-      <%= cl_image_tag(@member.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max)%>
+      <%= cl_image_tag(@member.photo_url, :width => 100, :height => 100, :crop => :fill, :gravity => :face,:radius => :max, class: 'thumbnail')%>
       <div id="upload_button">
       <%= f.file_field :photo, class: "upload", onchange: "readURL(this);"%></br>
       </div>

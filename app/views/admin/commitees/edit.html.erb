@@ -1,10 +1,10 @@
 <div class="blog">
   <div class="container">
     <div class="leave">
-      <h3>Devarai Commitee members</h3>
-        <%= form_for @commitee, :url => admin_commitees_path, :method => :post do |f| %>
+      <h3>Update Commitee Member Data</h3>
+        <%= form_for @commitee, :url => admin_commitee_path, :method => :put do |f| %>
           <%= render partial: 'form', locals: {f: f} %>
-          <%= f.submit "Share Now"%>
+          <%= f.submit "Update Now"%>
         <% end %>
     </div>
   </div>

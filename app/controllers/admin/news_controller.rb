@@ -1,10 +1,11 @@
 class Admin::NewsController < ApplicationController
   before_action :authenticate_user!, except:[:show]
   before_action :verify_admin_user, except:[:show]
+  before_action :find_news, only: [:edit, :update, :show, :destroy]
   layout "admin"
 
   def index
-    @news = News.order('created_at DESC')
+    @news = News.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
@@ -23,13 +24,24 @@ class Admin::NewsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @news.build_picture(photo: params[:news][:photo]) if params[:news][:photo].present?
+    if @news.update_attributes(news_params)
+      redirect_to admin_news_path(@news.id)
+      flash[:notice] = "News updated successfully"
+    else
+      render :edit
+      flash[:alert] = "Something went wrong. Please update one more time."
+    end
+  end
+
   def show
-    @news = News.find(params[:id])
   end
 
   def destroy
-    news = News.find(params[:id])
-    news.destroy
     flash[:success] = "News deleted successfully"
     redirect_to delete_data_admin_dashboards_path
   end
@@ -37,6 +49,10 @@ class Admin::NewsController < ApplicationController
   private
   def news_params
     params.require(:news).permit(:title, :description, :event_date)
+  end
+
+  def find_news
+    @news = News.find_by_id(params[:id])
   end
 
 end

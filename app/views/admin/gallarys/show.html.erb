@@ -7,7 +7,7 @@
         <p class="para1"><%= photo_date.day %><span><%= photo_date.strftime("%b-%Y")%></span></p>
       </div>
       <div class="agileits_news_grid_left_gridr">
-        <%= cl_image_tag(@gallary.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+        <%= cl_image_tag(@gallary.photo_url, :width => 100, :height => 150, :crop => :fill, class: 'thumbnail')%>
         <h4><%= link_to @gallary.name, "#" %></h4>
         <p><%= "Devrai's best image" %></p>
       </div>
