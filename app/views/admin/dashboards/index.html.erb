@@ -3,19 +3,13 @@
     text-align: left !important;
   }
 </style>
-<div class="blog">
+
   <div class="container">
     <div class="leave">
       <h3>Admin Menu</h3>
-      <%= link_to "Add Photos", new_admin_gallary_path, class: "btn btn-default" %>
-      <%= link_to "Add Commitee Members", new_admin_commitee_path, class: "btn btn-default" %>
-      <%= link_to "Add Devrai New's", new_admin_news_path, class: "btn btn-default" %>
-      <%= link_to "Delete Unwanted Data", delete_data_admin_dashboards_path, class: "btn btn-default" %>
-      <%= link_to "All Users", all_users_admin_dashboards_path, class: "btn btn-default"%>
     </div>
     <h3>Recent activity in admin panel</h3>
   </div>
-</div>
 
 <% if @news.present? %>
   <div class="blog">

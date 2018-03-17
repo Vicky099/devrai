@@ -19,6 +19,15 @@
               <li><a href="#thoughts" class="scroll"><span data-hover="Thoughts">Thoughts</span></a></li>
               <li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
               <li><%= link_to "Tree Lover's", members_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Logout', logout_path %></li>
+              <% else %>
+                <li>
+                  <%= link_to user_facebook_omniauth_authorize_path do %>
+                    <i class="fa fa-facebook-square" style="font-size: 18px;"> Login</i>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </nav>
         </div>

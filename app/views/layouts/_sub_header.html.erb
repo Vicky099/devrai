@@ -1,7 +1,9 @@
 <div class="header-bottom-w3">
   <div class="container">
     <div class="col-md-4 logo-agileits">
-      <a href="/"><h1>SHIVSHIKHAR DEVRAI</h1></a>
+      <%= link_to "/" do %>
+        <h1>SHIVSHIKHAR DEVRAI</h1>
+      <% end %>
     </div>
     <div class="col-md-8 call-mail-agileinfo">
       <div class="call">
@@ -19,5 +21,21 @@
 </div>
 <% if sub_header %>
   <div class="sub-banner">
+  </div>
+<% end %>
+<% if current_user.present? && current_user.admin? && request.path.include?("admin")%>
+  <div class="container">
+    <div class="leave">
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to "Menu", admin_dashboards_path, class: "btn btn-default" %>
+          <%= link_to "Add Photos", new_admin_gallary_path, class: "btn btn-default" %>
+          <%= link_to "Add Commitee Members", new_admin_commitee_path, class: "btn btn-default" %>
+          <%= link_to "Add Devrai New's", new_admin_news_path, class: "btn btn-default" %>
+          <%= link_to "Delete Unwanted Data", delete_data_admin_dashboards_path, class: "btn btn-default" %>
+          <%= link_to "All Users", all_users_admin_dashboards_path, class: "btn btn-default"%>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
