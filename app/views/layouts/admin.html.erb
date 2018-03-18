@@ -20,8 +20,11 @@
       });
     </script>
   </head>
-
-  <body>
+  <% if request.path.include?("/admin/news/") %>
+    <body data-no-turbolink="true">
+  <% else %>
+    <body>
+  <% end %>
       <div class="wrapper">
         <%= render '/layouts/sub_header', sub_header: true %>
         <%= render "layouts/flash_message" %>
@@ -29,5 +32,4 @@
         <%= render '/layouts/footer' %>
       </div>
   </body>
-
 </html>
