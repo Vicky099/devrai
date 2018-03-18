@@ -1,16 +1,21 @@
 class HomesController < ApplicationController
   layout "application"
+  before_action :set_header_true, only: [:community, :news]
   def index
     @members = Commitee.last(4)
     @news = News.last(2)
+    @sub_header = false
   end
 
   def community
-    @sub_header = true
   end
 
   def news
-    @sub_header = true
     @news = News.includes(:picture)
+  end
+
+  private
+  def set_header_true
+    @sub_header = true
   end
 end

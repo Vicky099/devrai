@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   layout 'application'
   before_action :verify_admin_user, only: [:destroy]
-
+  before_action :set_header_true
   def index
     @members = Member.order('id desc').paginate(:page => params[:page], :per_page => 20)
   end
@@ -58,5 +58,9 @@ class MembersController < ApplicationController
   private
   def member_params
     params.require(:member).permit(:firstname, :lastname, :gender, :mobile_number, :email_id, :village, :taluka, :district, :state, :membership, :about_me, :about_devrai, :tree_planted_count)
+  end
+
+  def set_header_true
+    @sub_header = true
   end
 end
