@@ -11,11 +11,13 @@
                   <div class="agileits_news_grid_left_gridl">
                     <p class="para1"><%= news.event_date.day %><span><%= news.event_date.strftime("%b-%Y")%></span></p>
                   </div>
-                  <div class="agileits_news_grid_left_gridr">
-                    <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill)%>
-                    <h4><%=link_to news.title , "#" %></h4>
-                    <p><%= news.description %></p>
-                  </div>
+                  <%= link_to admin_news_path(news.id) do %>
+                    <div class="agileits_news_grid_left_gridr">
+                      <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                      <h4><%=link_to news.title , "#" %></h4>
+                      <p><%= news.description %></p>
+                    </div>
+                  <% end %>
                   <div class="clearfix"> </div>
                 </div>
               <% end %>
