@@ -7,13 +7,13 @@
           <ul id="myList">
             <li>
               <div class="l_g">
-                <% @news.each do |news| %>
+                <% @news.each_with_index do |news, index| %>
                   <div class="col-md-6 agileits_news_grid_left">
                     <div class="agileits_news_grid_left_gridl">
                       <p class="para1"><%= news.event_date.day %><span><%= news.event_date.strftime("%b-%Y")%></span></p>
                     </div>
                     <div class="agileits_news_grid_left_gridr">
-                      <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill)%>
+                      <%= cl_image_tag(news.photo_url, :width => 100, :height => 150, :crop => :fill, :onclick=>"openModal();currentSlide(#{index+1})", :class=>"hover-shadow cursor")%>
                       <h4><%= link_to "#{news.title}", admin_news_path(news.id), class: 'btn btn-link' %></h4>
                       <p><%= news.description %></p>
                     </div>
@@ -29,3 +29,4 @@
     </div>
   </div>
 </div>
+<%= render partial: 'admin/news/modal', locals:{news_list: @news} %>

@@ -5,6 +5,7 @@ class HomesController < ApplicationController
     @members = Commitee.last(4)
     @news = News.last(2)
     @sub_header = false
+    @home = HomeContent.first
   end
 
   def community

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :commitees
     resources :news
+    resources :homes
   end
 
   #custom routes

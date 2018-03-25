@@ -1,7 +1,15 @@
 <!-- Contact -->
 <div class="aitscontactw3l" id="contact">
   <div class="container">
-    <h3>Contact</h3>
+    <% if @home.present? %>
+      <% if @home.content6_header.present? %>
+        <h3><%= @home.content6_header %></h3>
+      <% else %>
+        <h3>Contact</h3>
+      <% end %>
+    <% else %>
+      <h3>Contact</h3>
+    <% end %>
       <div class="row">
         <div class="col-md-6 banner-text-w3ls">
           <h2>Mhaskewadi</h2>

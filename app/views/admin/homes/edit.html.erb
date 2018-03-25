@@ -1,0 +1,11 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Update Content</h3>
+        <%= form_for @home_content, :url => admin_home_path, :method => :put do |f| %>
+          <%= render :partial=>'form', locals:{f: f} %>
+          <%= f.submit "Update Content" %>
+        <% end %>
+    </div>
+  </div>
+</div>

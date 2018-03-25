@@ -1,0 +1,23 @@
+<div class="blog">
+  <div class="container">
+    <div class="comments">
+      <h3>Manage Home data</h3>
+      <%= link_to "Create content", new_admin_home_path, :class=> "btn btn-default" %><br/><br/>
+      <table class="gradienttable">
+        <th>Header</th>
+        <th>Action</th>
+        <% if @home_content.present? %>
+          <% @home_content.each do |home| %>
+            <tr>
+              <td><%= home.site_header %></td>
+              <td><%= link_to 'Edit', edit_admin_home_path(home.id), class: 'btn btn-link' %> / <%= link_to "Delete", admin_home_path(home.id), method: :DELETE, class: 'btn btn-link' %> / <%= link_to "Show", admin_home_path(home.id), class: 'btn btn-link' %></td>
+            </tr>
+            <div class="clearfix"></div>
+          <% end %>
+        <% else %>
+          <tr><td>No Data</td><td></td></tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

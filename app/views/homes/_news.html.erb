@@ -1,5 +1,13 @@
 <div class="container">
-  <h3>Devrai News & Announcement's</h3>
+  <% if @home.present? %>
+    <% if @home.content5_header.present? %>
+      <h3><%= @home.content5_header %></h3>
+    <% else %>
+      <h3>Devrai News & Announcement's</h3>
+    <% end %>
+  <% else %>
+    <h3>Devrai News & Announcement's</h3>
+  <% end %>
   <div class="agileits_news_grids">
     <div class="tab-1 resp-tab-content">
       <div class="load_more">

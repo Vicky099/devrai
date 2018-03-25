@@ -1,41 +1,118 @@
 <div class="clients" id="thoughts">
   <div class="container">
-    <h3>Thoughts</h3>
+    <% if @home.present? %>
+      <% if @home.content4_header.present? %>
+        <h3><%= @home.content4_header %></h3>
+      <% else %>
+        <h3>Thoughts</h3>
+      <% end %>
+    <% else %>
+      <h3>Thoughts</h3>
+    <% end %>
     <div>
         <div>
           <article>
             <div class="banner-wrap">
               <div class="col-md-4 client-grids">
-                <p>Devarai is one of the best project in Mhaskewadi and I am very thankful to maskewadi peoples for great work devrai. Team Sahyadri Devrai.</p>
-                <div class="col-md-4 c-img">
-                  <%= cl_image_tag('sayaji-shinde.jpg', :width => 90, :height => 90, :crop => :fill, :type=>'asset')%>
-                </div>
-                <div class="col-md-8 c-info">
-                  <h4>Sayaji Shinde</h4>
-                  <h5>Sahyadri Devrai</h5>
-                </div>
+                <% if @home.present? %>
+                  <% if @home.content4_thought1_desc.present? %>
+                    <p><%= @home.content4_thought1_desc %></p>
+                  <% else %>
+                    <p>Devarai is one of the best project in Mhaskewadi and I am very thankful to maskewadi peoples for great work devrai. Team Sahyadri Devrai.</p>
+                  <% end %>
+                  <div class="col-md-4 c-img">
+                    <%= cl_image_tag('sayaji-shinde.jpg', :width => 90, :height => 90, :crop => :fill, :type=>'asset')%>
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <% if @home.content4_thought1_name.present? %>
+                      <h4><%= @home.content4_thought1_name %></h4>
+                    <% else %>
+                      <h4>Sayaji Shinde</h4>
+                    <% end %>
+                    <% if @home.content4_thought1_position.present? %>
+                      <h5><%= @home.content4_thought1_position %></h5>
+                    <% else %>
+                      <h5>Sahyadri Devrai</h5>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <p>Devarai is one of the best project in Mhaskewadi and I am very thankful to maskewadi peoples for great work devrai. Team Sahyadri Devrai.</p>
+                  <div class="col-md-4 c-img">
+                    <%= cl_image_tag('sayaji-shinde.jpg', :width => 90, :height => 90, :crop => :fill, :type=>'asset')%>
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <h4>Sayaji Shinde</h4>
+                    <h5>Sahyadri Devrai</h5>
+                  </div>
+                <% end %>
                 <div class="clearfix"></div>
               </div>
               <div class="col-md-4 client-grids">
-                <p>Plantation is need of future, thanks to everyone who actively support for devrai. I know one day my villagers will create history.</p>
-                <div class="col-md-4 c-img">
-                  <img src="assets/default.png"  alt="" />
-                </div>
-                <div class="col-md-8 c-info">
-                  <h4>Kiran Panmand</h4>
-                  <h5>Sarpanch Mhaskewadi</h5>
-                </div>
+                <% if @home.present? %>
+                  <% if @home.content4_thought2_desc.present? %>
+                    <p><%= @home.content4_thought2_desc %></p>
+                  <% else %>
+                    <p>Plantation is need of future, thanks to everyone who actively support for devrai. I know one day my villagers will create history.</p>
+                  <% end %>
+                  <div class="col-md-4 c-img">
+                    <img src="assets/default.png"  alt="" />
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <% if @home.content4_thought2_name.present? %>
+                      <h4><%= @home.content4_thought2_name %></h4>
+                    <% else %>
+                      <h4>Kiran Panmand</h4>
+                    <% end %>
+                    <% if @home.content4_thought2_position.present? %>
+                      <h5><%= @home.content4_thought2_position %></h5>
+                    <% else %>
+                      <h5>Sarpanch Mhaskewadi</h5>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <p>Plantation is need of future, thanks to everyone who actively support for devrai. I know one day my villagers will create history.</p>
+                  <div class="col-md-4 c-img">
+                    <img src="assets/default.png"  alt="" />
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <h4>Kiran Panmand</h4>
+                    <h5>Sarpanch Mhaskewadi</h5>
+                  </div>
+                <% end %>
                 <div class="clearfix"></div>
               </div>
               <div class="col-md-4 client-grids">
-                <p>Hard work, dedication and passion is key of success. people who work with this 3 factor of life, will never lose. Thanks for support.</p>
-                <div class="col-md-4 c-img">
-                  <img src="assets/default.png"  alt="" />
-                </div>
-                <div class="col-md-8 c-info">
-                  <h4>Pandurang Sonawane</h4>
-                  <h5>Maharashtra Police</h5>
-                </div>
+                <% if @home.present? %>
+                  <% if @home.content4_thought3_desc.present? %>
+                    <p><%= @home.content4_thought3_desc %></p>
+                  <% else %>
+                    <p>Hard work, dedication and passion is key of success. people who work with this 3 factor of life, will never lose. Thanks for support.</p>
+                  <% end %>
+                  <div class="col-md-4 c-img">
+                    <img src="assets/default.png"  alt="" />
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <% if @home.content4_thought3_name.present? %>
+                      <h4><%= @home.content4_thought3_name %></h4>
+                    <% else %>
+                      <h4>Pandurang Sonawane</h4>
+                    <% end %>
+                    <% if @home.content4_thought3_position.present? %>
+                      <h5><%= @home.content4_thought3_position %></h5>
+                    <% else %>
+                      <h5>Maharashtra Police</h5>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <p>Hard work, dedication and passion is key of success. people who work with this 3 factor of life, will never lose. Thanks for support.</p>
+                  <div class="col-md-4 c-img">
+                    <img src="assets/default.png"  alt="" />
+                  </div>
+                  <div class="col-md-8 c-info">
+                    <h4>Pandurang Sonawane</h4>
+                    <h5>Maharashtra Police</h5>
+                  </div>
+                <% end %>
                 <div class="clearfix"></div>
               </div>
               <div class="clearfix"></div>

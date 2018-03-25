@@ -1,0 +1,11 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Add Content</h3>
+        <%= form_for @home_content, :url => admin_homes_path, :method => :post do |f| %>
+          <%= render :partial=>'form', locals:{f: f} %>
+          <%= f.submit "create content" %>
+        <% end %>
+    </div>
+  </div>
+</div>

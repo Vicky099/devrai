@@ -25,8 +25,21 @@
       </div>
     </div>
     <div class="col-md-4 work-right">
-      <h3>Works</h3>
-      <p>We had planted 10,000 different trees at ShivShikhar. ShivSagar pond is life of our Devrai.</p>
+      <% if @home.present? %>
+        <% if @home.content3_header %>
+          <h3><%= @home.content3_header %></h3>
+        <% else %>
+          <h3>Works</h3>
+        <% end %>
+        <% if @home.content3_desc %>
+          <p><%= @home.content3_desc %></p>
+        <% else %>
+          <p>We had planted 10,000 different trees at ShivShikhar. ShivSagar pond is life of our Devrai.</p>
+        <% end %>
+      <% else %>
+        <h3>Works</h3>
+        <p>We had planted 10,000 different trees at ShivShikhar. ShivSagar pond is life of our Devrai.</p>
+      <% end %>
       <div class="col-md-6 work-right-left">
         <div class="seventh-img">
             <div class="view second-effect">
