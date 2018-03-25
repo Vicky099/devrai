@@ -49,6 +49,6 @@ class Admin::HomesController < ApplicationController
 
   private
   def home_params
-    params.require(:home_content).permit(:site_header, :site_menu, :content1_header, :content1_desc, :content2_header, :content2_sub_header, :content2_desc, :content3_header, :content3_desc, :content4_header, :content4_thought1_desc, :content4_thought1_name, :content4_thought1_position, :content4_thought2_desc, :content4_thought2_name, :content4_thought2_position, :content4_thought3_desc, :content4_thought3_name, :content4_thought3_position, :content5_header, :content6_header)
+    params.require(:home_content).permit(:site_header, :site_menu, :content1_header, :content1_desc, :content2_header, :content2_sub_header, :content2_desc, :content3_header, :content3_desc, :content4_header, :content4_thought1_desc, :content4_thought1_name, :content4_thought1_position, :content4_thought2_desc, :content4_thought2_name, :content4_thought2_position, :content4_thought3_desc, :content4_thought3_name, :content4_thought3_position, :content5_header, :content6_header, :content6_desc1, :content6_desc2)
   end
 end

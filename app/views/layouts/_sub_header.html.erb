@@ -1,17 +1,28 @@
 <div class="header-bottom-w3">
   <div class="container">
     <div class="col-md-4 logo-agileits">
-      <%= link_to "/" do %>
-        <h1>SHIVSHIKHAR DEVRAI</h1>
+      <% home = HomeContent.first %>
+      <% if home.present? %>
+        <%= link_to "/" do %>
+          <% if home.site_header.present? %>
+            <h1><%= home.site_header %></h1>
+          <% else %>
+            <h1>SHIVSHIKHAR DEVRAI</h1>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to "/" do %>
+          <h1>SHIVSHIKHAR DEVRAI</h1>
+        <% end %>
       <% end %>
     </div>
     <div class="col-md-8 call-mail-agileinfo">
       <div class="call">
-        <h4>For Donation Call</h4>
+        <h4>वृक्षदानासाठी संपर्क</h4>
         <h3>+91-9766505024</h3>
       </div>
       <div class="mail">
-        <h4>Tree Planted</h4>
+        <h4>वृक्ष लागवड</h4>
         <h3><a><%= all_trees_counter %></a></h3>
       </div>
       <div class="clearfix"></div>

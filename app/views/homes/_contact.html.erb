@@ -12,15 +12,22 @@
     <% end %>
       <div class="row">
         <div class="col-md-6 banner-text-w3ls">
-          <h2>Mhaskewadi</h2>
-          <p>ShivShikhar, Tal : Parner, Dist : Ahmednagar, Maharashtra, India</p>
-          <p>414305</p>
+          <% @home.content6_desc1.split("$").each_with_index do |content, index| %>
+            <% if index == 0 %>
+              <h2><%= content %></h2>
+            <% else %>
+              <p><%= content %></p>
+            <% end %>
+          <% end %>
         </div>
         <div class="col-md-6 banner-text-w3ls">
-          <h2>Contact Person</h2>
-          <p>Kiran Panmand</p>
-          <p>(+91)-9766505024</p>
-          <p>devrai@gmail.com</p>
+          <% @home.content6_desc2.split("$").each_with_index do |content, index| %>
+            <% if index == 0 %>
+              <h2><%= content %></h2>
+            <% else %>
+              <p><%= content %></p>
+            <% end %>
+          <% end %>
         </div>
         <div class="clearfix"></div>
       </div>
