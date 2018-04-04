@@ -33,7 +33,11 @@ Rails.application.routes.draw do
     resources :donations
   end
 
-  resources :donations
+  resources :donations do
+    member do
+      get :total_donate
+    end
+  end
   get 'donation_list' , to: "donations#donation"
   get 'fund_list', to: "donations#fund"
   #custom routes

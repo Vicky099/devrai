@@ -1,1 +1,25 @@
-Coming soon fund
+<div class="news">
+  <div class="container">
+    <% home_menu = home_data.site_menu.split(',') %>
+    <% if home_menu.present? %>
+      <h3><%= home_menu[8] %></h3>
+    <% end %>
+    <div class="row">
+      <% @funds.each do |fund| %>
+        <div class="column">
+          <div class="content">
+            <h4><%= fund.name %></h4>
+            <p>Village : <%= fund.village %></p>
+            <p>Contact No. : <%= fund.contact_no %></p>
+            <p>Donation Date: <%= fund.date.strftime("%d %b %Y") %></p>
+            <p>For month : <%= fund.fund_month %></p>
+            <p>Till fund Amount : <%= total_donated_amount(fund.contact_no, fund.type_of_donation) %></p>
+            <p>Thank you <%= fund.name %> ! </p>
+            <%= link_to 'click to see Donation History...', total_donate_donation_path(fund.id), class: 'btn btn-link' %>
+          </div>
+        </div>
+      <% end %>
+      <%= will_paginate(@funds) %>
+    </div>
+  </div>
+</div>

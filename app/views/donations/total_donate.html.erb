@@ -2,7 +2,11 @@
   <div class="container">
     <% home_menu = home_data.site_menu.split(',') %>
     <% if home_menu.present? %>
-      <h3><%= home_menu[7] %></h3>
+      <% if @type == "donation" %>
+        <h3><%= home_menu[7] %></h3>
+      <% else %>
+        <h3><%= home_menu[8] %></h3>
+      <% end %>
     <% end %>
     <div class="row">
       <% @donations.each do |donation| %>
@@ -13,9 +17,8 @@
             <p>Contact No. : <%= donation.contact_no %></p>
             <p>Donation Date: <%= donation.date.strftime("%d %b %Y") %></p>
             <p>For month : <%= donation.fund_month %></p>
-            <p>Till donation Amount : <%= total_donated_amount(donation.contact_no, donation.type_of_donation) %></p>
+            <p>Donation Amount : <%= donation.amount %></p>
             <p>Thank you <%= donation.name %> ! </p>
-            <%= link_to 'click to see Donation History...', total_donate_donation_path(donation.id), class: 'btn btn-link' %>
           </div>
         </div>
       <% end %>
