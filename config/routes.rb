@@ -30,8 +30,12 @@ Rails.application.routes.draw do
     resources :commitees
     resources :news
     resources :homes
+    resources :donations
   end
 
+  resources :donations
+  get 'donation_list' , to: "donations#donation"
+  get 'fund_list', to: "donations#fund"
   #custom routes
 
   match 'admin', to: 'admin/dashboards#index', via: :get

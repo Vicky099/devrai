@@ -1,0 +1,29 @@
+<div class="news">
+  <div class="container">
+    <h3>Donar's</h3>
+    <%= link_to "New donar", new_admin_donation_path, class: 'btn btn-sm btn-success' %>
+    <br/><br/>
+    <%= will_paginate(@donations)%>
+    <table class="gradienttable">
+      <tr>
+        <th>Name</th>
+        <th>Donation Type</th>
+        <th>Month & Amount </th>
+        <th>Action</th>
+      </tr>
+      <% @donations.each do |donar| %>
+        <tr>
+          <td><%= "#{donar.name} - #{donar.contact_no}" %></td>
+          <td><%= (donar.type_of_donation).camelcase %></td>
+          <td><%= "#{donar.fund_month} - #{donar.amount}" %></td>
+          <td>
+            <%= link_to 'edit', edit_admin_donation_path(donar.id) %>
+            / <%= link_to 'show', admin_donation_path(donar.id) %>
+            / <%= link_to 'delete', admin_donation_path(donar.id), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="clearfix"> </div>
+  </div>
+</div>

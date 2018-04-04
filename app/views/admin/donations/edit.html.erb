@@ -1,0 +1,12 @@
+<div class="blog">
+  <div class="container">
+    <div class="leave">
+      <h3>Edit Devarai Donar info</h3>
+        <%= form_for @donation, :url => admin_donation_path, :method => :put do |f| %>
+          <%= render partial: 'form', locals: {f: f} %>
+          <%= f.submit "Update"%>
+        <% end %>
+    </div>
+  </div>
+</div>
+<!-- newsletter -->

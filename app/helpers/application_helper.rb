@@ -23,4 +23,7 @@ module ApplicationHelper
     return tree_count + 10000
   end
 
+  def home_data
+    return HomeContent.first
+  end
 end

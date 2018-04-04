@@ -3,6 +3,7 @@
     <h3>Tree Lover's</h3>
     <%= link_to 'Register', new_member_path, class: 'btn btn-primary' %>
     <br/><br/>
+    <%= will_paginate(@members)%>
     <table class="gradienttable">
       <tr>
         <th>Name</th>
@@ -24,7 +25,6 @@
           </td>
         </tr>
       <% end %>
-      <%= will_paginate(@members)%>
     </table>
     <div class="clearfix"> </div>
   </div>

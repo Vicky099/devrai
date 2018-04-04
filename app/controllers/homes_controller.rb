@@ -12,7 +12,7 @@ class HomesController < ApplicationController
   end
 
   def news
-    @news = News.includes(:picture)
+    @news = News.includes(:picture).order('created_at DESC').paginate(page: params[:page], per_page: 20)
   end
 
   private

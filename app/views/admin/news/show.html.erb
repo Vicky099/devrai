@@ -1,21 +1,19 @@
 <div id="fb-root"></div>
 <div class="news">
   <div class="container">
-    <h3>News</h3>
+    <% home = home_data %>
+    <% if home.content5_header.present? %>
+      <h3><%= home.content5_header %></h3>
+    <% else %>
+      <h3>Devrai News & Announcement's</h3>
+    <% end %>
     <div class="row">
       <div class="col-md-6">
-        <div class="agileits_news_grid_left_gridl">
-          <p class="para1"><%= @news.event_date.day %><span><%= @news.event_date.strftime("%b-%Y")%></span></p>
-        </div>
-        <div class="agileits_news_grid_left_gridr">
-          <% if @news.picture.present? %>
-            <%= cl_image_tag(@news.photo_url, :width => 100, :height => 150, :crop => :fill, class: 'thumbnail')%>
-          <% else %>
-            <%= image_tag 'default.png', class: 'img-responsive' %>
-          <% end %>
-          <h4><%= link_to @news.title, "#" %></h4>
-          <p><%= @news.description %></p><br>
-        </div>
+        <%= cl_image_tag(@news.photo_url, :width => 200, :height => 250, :crop => :fill)%>
+          <div class="content">
+            <h4><%= @news.title %></h4>
+            <p><%= @news.description %></p><br>
+          </div>
       </div>
       <div class="col-md-5">
          <div class="fb-comments" data-href="<%= request.url %>" data-numposts="5"></div>

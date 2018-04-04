@@ -1,0 +1,37 @@
+<%= f.hidden_field :date, value: Date.today %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: 'Name', required: true %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.text_field :contact_no, placeholder: 'Contact Number', required: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.text_field :village, placeholder: 'Village', required: true %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.select(:type_of_donation, Donation.type_of_donations.keys, {prompt: 'Select type'}, {:class => 'custom-input-field'}) %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.text_field :amount, placeholder: 'Amount', required: true %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+    <%= f.select(:fund_month, Donation.months.keys, {prompt: 'Select Month'}, {:class => 'custom-input-field'}) %>
+    </div>
+  </div>
+</div>

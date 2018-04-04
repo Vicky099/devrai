@@ -6,11 +6,13 @@
         <!-- Quick-Links -->
         <div class="col-md-8 agilefootergrid footer-nav">
           <ul>
-              <li class="active"><%= link_to "Home", root_path %></li>
-              <li><a href="#vision" class="scroll"><span data-hover="Vision">Vision</span></a></li>
-              <li><a href="#works" class="scroll"><span data-hover="Works">Our Works</span></a></li>
-              <li><a href="#thoughts" class="scroll"><span data-hover="Clients">Thoughts</span></a></li>
-              <li><a href="#contact" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+              <% menu = home_data.site_menu.split(",") %>
+              <li class="active"><%= link_to "#{menu[0]}", root_path %></li>
+              <li><a href="#vision" class="scroll"><span data-hover="<%= menu[1] %>"><%= menu[1] %></span></a></li>
+              <li><a href="#works" class="scroll"><span data-hover="<%= menu[2] %>"><%= menu[2] %></span></a></li>
+              <li><a href="#thoughts" class="scroll"><span data-hover="<%= menu[3] %>"><%= menu[3] %></span></a></li>
+              <li><a href="#contact" class="scroll"><span data-hover="<%= menu[4] %>"><%= menu[4] %></span></a></li>
+              <li><%= link_to "#{menu[5]}", members_path %></li>
               <% if user_signed_in? %>
                 <% if current_user.admin? %>
                   <li><%= link_to 'Admin Panel', admin_path %></li>

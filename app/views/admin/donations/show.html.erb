@@ -1,0 +1,56 @@
+<div class="news">
+  <div class="container">
+    <h3>Donar Info</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= link_to "back to List", admin_donations_path, class: 'btn btn-default' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <strong>Name:</strong> <%= @donation.name %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+        <strong>Contact No:</strong> <%= @donation.contact_no %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <strong>Village:</strong> <%= @donation.village %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+        <strong>Donation Type:</strong> <%= @donation.type_of_donation %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <strong>Amount:</strong> <%= @donation.amount %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+        <strong>Donation for Month:</strong> <%= @donation.fund_month %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <strong>Donation date:</strong> <%= @donation.date %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
