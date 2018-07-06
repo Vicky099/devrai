@@ -11,7 +11,7 @@
         <div class="column">
           <div class="content">
             <%= cl_image_tag(news.photo_url, :width => 200, :height => 250, :crop => :fill, :onclick=>"openModal();currentSlide(#{index+1})", :class=>"hover-shadow cursor")%>
-            <h4><%= news.title%></h4>
+            <h4><%= news.title.truncate(30)  %></h4>
             <p><%= news.description.truncate(70) %></p>
             <%= link_to 'Continue reading....',  admin_news_path(news.id), class: 'btn btn-link' %>
           </div>

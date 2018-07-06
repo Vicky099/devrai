@@ -34,17 +34,7 @@
     <div class="col-md-4 sign-up" style="padding: 0px;">
       <% if user_signed_in? %>
         <li>
-          <% if current_user.provider == "facebook" %>
-            <%= link_to "Log Out", logout_path, class: "btn-auth btn-facebook" %>
-          <% else %>
-            <%= link_to "Log Out", logout_path, class: "btn btn-xs btn-success" %>
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to user_facebook_omniauth_authorize_path, :class=>"btn-auth btn-facebook" do %>
-            Sign In
-          <% end %>
+          <%= link_to "Log Out", logout_path, class: "btn btn-xs btn-success" %>
         </li>
       <% end %>
     </div>
