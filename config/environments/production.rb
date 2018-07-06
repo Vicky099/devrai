@@ -40,7 +40,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = false
+  config.assets.debug = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -48,8 +48,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # Use an evented file watcher to asynchronously detect changes in source code,
-  config.assets.compile = false
   config.log_level = :debug
   config.log_tags = [ :request_id ]
   config.log_formatter = ::Logger::Formatter.new
@@ -62,17 +60,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  #Email configuration
-  config.action_mailer.default_url_options = { :host => 'http://www.shivdevrai.com' }
-  ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => '587',
-  :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
-  :enable_starttls_auto => true
-}
-
+  # Use an evented file watcher to asynchronously detect changes in source code,
+  # routes, locales, etc. This feature depends on the listen gem.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => 587,
+    :address        => 'smtp.gmail.com',
+    :user_name      => ENV["ACCOUNT_EMAIL"],
+    :password       => ENV["ACCOUNT_PASSWORD"],
+    :domain         => 'gmail.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
+  }
 end
