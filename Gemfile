@@ -37,7 +37,7 @@ gem "font-awesome-rails"
 gem "twitter-bootstrap-rails"
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 gem 'jquery-rails'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets', '~> 3.7', '>= 3.7.2', :require => 'sprockets/railtie'
 gem 'pg'
 gem 'carrierwave'
 gem 'cloudinary'
